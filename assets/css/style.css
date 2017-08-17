@@ -1,64 +1,74 @@
-/*#answers{
-	background-color: pink;
+@font-face {
+    font-family: Mobsters;
+    src: local("Mobsters"),
+    url("./mobsters.ttf");
 }
 
+body {
 
-
-.0,.1,.2,.3{
-	background-color: pink;*/
-
-
-/*#\31 "0",#\31 1,#\31 2,#\31 3{
-	background-color: pink!important;
-}*/
-
-body{
-	background-image: url(../images/sopranoes.jpg);
-	background-repeat: no-repeat;
-	height: 100%;
-	background-color: black;
+    height: 100%;
+    background-color: black;
+    font-family: Mobsters!important;
+    letter-spacing: 2px;
 }
 
-[id="0"],[id="1"],[id="2"],[id="3"] {color: red!important;}
+[id="0"],
+[id="1"],
+[id="2"],
+[id="3"] {
+    color: red!important;
+}
 
-
-/*#answers{
-	background-color: grey;
-}*/
 
 .jumbotron {
-    /*height: calc(100% + 113px);*/
     min-height: 620px;
-
-    opacity: .75;
-    /*overflow: auto;*/
+    opacity: .90;
+    background-image: url(../images/sopranos.jpg);
+    background-repeat: no-repeat;
 }
 
-.header{
-	height: 100px;
+.header {
+    height: 100px;
 }
-#question{
-	height: 50px;
-	text-align: center;
+
+#question {
+    text-align: left;
+    color: white;
+    letter-spacing: 2px;
+    max-width: 80%;
 }
+
 #answers,
 #correct-answer,
-#notification{
-	height: 100px;
-	text-align: center;
-}
-#countdown{
-	height: 50px;
-	text-align: center;
-}
-#start{
-	height: 50px;
-}
-#start-game,
-#restart-game{
-	width: 200px;
+#notification {
+    text-align: left;
+    color: white!important;
 }
 
-.winner{
-	background-color: green;
+#notification,
+#countdown,
+#stats {
+    text-align: left;
+    color: white!important;
+    font-size: 20px;
+}
+
+#start {
+    height: 50px;
+}
+
+#start-game,
+#restart-game {
+    width: 200px;
+    height: 50px;
+    font-size: 36px;
+    color: black;
+}
+
+
+.header {
+    background-image: url(../images/head.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
 }

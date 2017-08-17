@@ -2,10 +2,10 @@
 
 
 var trivia = {
-    // gameTime: 100,
+
     questionIndex: 0, // keep track of where we are in the question array
     answerIndex: -1,
-    answerTime: 10, // change this to production time once testing complete
+    answerTime: 15, // change this to production time once testing complete
     questionsCorrect: 0,
     questionsIncorrect: 0,
     questionsUnanswered: 0,
@@ -13,26 +13,95 @@ var trivia = {
     gamePaused: false,
 
     questions: [{
-            question: "What is the capital of United Kingdom?",
-            choices: ["Manchester", "Birmingham", "London", "Birmingham"],
+            question: "Who is the Boss of the New York crew?",
+            choices: ["Johnny Sack", "Chucky Signore", "Carmine Lupertazzi", "Junior Soprano"],
             answer: 2
         },
 
         {
-            question: "What is the capital of United States?",
-            choices: ["California", "Washington DC", "Miami", "Florida"],
+            question: "Which two sports did Tony play in high school a teenager?",
+            choices: ["Baseball and Basketball", "Baseball and Rugby", "Football and Basketball", " Football and Baseball"],
+            answer: 3
+        },
+
+
+        {
+            question: "What health problem is Junior often treated for?",
+            choices: ["Liver Problem", "Pink Eye", "Heart Problem", "Bad Back"],
+            answer: 2
+        },
+
+        {
+            question: "What was the name of the FBI agent that Sal Bonpensireo most frequently dealt with?",
+            choices: ["Agent Grasso", "Agent Harris", "Agent Skip Lapari", "Agent Marquez"],
+            answer: 2
+        },
+
+        {
+            question: "What medication is Tony prescribed regularly for his depression?",
+            choices: ["Paxil", "Prozac", "Zoloft", "Lithium"],
             answer: 1
         },
+
         {
-            question: "What color is the sky?",
-            choices: ["China", "Pink", "$50", "Blue"],
+            question: "Who is the owner of the Bada Bing club?",
+            choices: ["Tony Soprano", "Silvio Dante", "Moe Green", "Carmella Soprano"],
+            answer: 1
+        },
+
+        {
+            question: "What is the name of the rapper in the first year that invites Christopher and Adriana to his house party, and later has problems with Hesh Rabkin? ",
+            choices: ["MC Lyte", "Black Magic", "Massive Genious", "Krazy eye killa"],
+            answer: 2
+        },
+
+        {
+            question: "Which crew member is mentioned as being Adriana's uncle?",
+            choices: ["Richie Aprile", "Ralphie", "Mikey Palmice", "Paulie"],
+            answer: 0
+        },
+
+        {
+            question: "On the Soprano Crew trip to Italy, which member was running late on the day of departure because they were buying a gift for their girlfriend/wife?",
+            choices: ["Tony", "Furio", "Paulie", "Christopher"],
+            answer: 3
+        },
+
+        {
+            question: "Which of the following Soprano crew members did not make the trip to Italy?",
+            choices: ["Silvio", "Paulie", "Tony", "Christopher"],
+            answer: 0
+        },
+
+        {
+            question: "Which Soprano family friend was run over by Richie Aprile after he got out of prison?",
+            choices: ["Peter 'Beansie' Gaeta", "Davey Scatino", "Hesh Rabkin", "Artie Bucco"],
+            answer: 0
+        },
+
+        {
+            question: "Who does Dr. Melfi most blame for Tony's panic attacks and depression?",
+            choices: ["His Wife Carmella", "His father Johnny", "His daughter Meadow", "His mother Livia"],
+            answer: 3
+        }, {
+            question: "Which famous musicians offspring makes an appearance playing in the high rollers card game in Season 2?",
+            choices: ["Elvis", "John Lennon", "Frank Sinatra", "Bono"],
+            answer: 2
+        },
+
+        {
+            question: "Finish this opening theme song lyric... 'Woke Up This Morning, got yourself a gun.....",
+            choices: ["Momma always said you'd be the chosen one", "Momma never told you about right and wrong", "Poppa always said you'd be the chosen one", "Born under a bad sign"],
+            answer: 0
+        },
+
+        {
+            question: "Who can almost always seen smoking a cigarette?",
+            choices: ["Junior", "Paulie", "Christopher", "Johnny Sack"],
             answer: 3
         }
 
-
-
     ],
-
     //methods
 
     run: function() {
@@ -43,7 +112,7 @@ var trivia = {
         trivia.showQuestion();
         $("#start-game").hide();
         $("#notification").hide();
-       
+
 
     },
 
@@ -60,64 +129,39 @@ var trivia = {
             //  Alert the user that time is up.
             console.log("Times Up for this one :-( ");
             $("#countdown").html("<h2>Times Up for this one :-(</h2>");
-
-            trivia.showCorrect();
-            trivia.questionsUnanswered++;
-            // trivia.questionIndex++;
-
-
             //show correct answer in div
-            // wait seconds then move to next question
+            trivia.showCorrect();
+
+            trivia.questionsUnanswered++;
+            
+            
             if (trivia.gameOver()) {
 
-                console.log("game over fn")
                 trivia.gameStarted = false;
 
             } else {
-                trivia.questionIndex++; /// 
+                trivia.questionIndex++; 
+                // wait 5 seconds then move to next question
                 setTimeout(function() {
                     trivia.nextQuestion();
                 }, 5000);
             }
-
-
         }
     },
 
     stop: function() {
 
         //  Clears our intervalId
-        //  We just pass the name of the interval
-        //  to the clearInterval function.
         clearInterval(intervalId);
     },
 
-
-
     showQuestion: function() {
-
-
         answerIndex = trivia.questions[trivia.questionIndex].answer; // set 
-        // console.log("correct answer is at index " + answerIndex);
-
         $("#question").html("<h2>" + trivia.questions[trivia.questionIndex].question + "</h2>");
         $("#0").html("<h2>" + trivia.questions[trivia.questionIndex].choices[0] + "</h2>");
         $("#1").html("<h2>" + trivia.questions[trivia.questionIndex].choices[1] + "</h2>");
         $("#2").html("<h2>" + trivia.questions[trivia.questionIndex].choices[2] + "</h2>");
         $("#3").html("<h2>" + trivia.questions[trivia.questionIndex].choices[3] + "</h2>");
-        //show question
-
-        //show choices
-        // trivia.run(); // start clock
-
-
-
-        // set 30 second timeout
-
-
-        // show question, start 30 econd timeout, if timer expires show correct answer then move to next
-        //
-
 
     },
 
@@ -133,7 +177,7 @@ var trivia = {
     },
 
     nextQuestion: function() {
-        trivia.answerTime = 10; // reset timer
+        trivia.answerTime = 15; // reset timer
         trivia.gamePaused = false; // un pause to allow clicks to actually do something
         trivia.showQuestion();
         trivia.run();
@@ -162,7 +206,7 @@ var trivia = {
 
         trivia.questionIndex = 0, // keep track of where we are in the question array
         trivia.answerIndex = -1,
-        trivia.answerTime = 10, // change this to production time once testing complete
+        trivia.answerTime = 15, // change this to production time once testing complete
         trivia.questionsCorrect = 0,
         trivia.questionsIncorrect = 0,
         trivia.questionsUnanswered = 0,
@@ -173,8 +217,6 @@ var trivia = {
         $('#countdown').empty();
         trivia.run();
         $('.answer').show(); // unhide answers
-        // $('#notification').empty();
-
     },
 
     hideWrongAnswer: function(answer) {
@@ -182,16 +224,10 @@ var trivia = {
         arr = [0, 1, 2, 3];
         for (var i = 0; i < arr.length; i++) {
             if (i != answer) {
-
                 $("#" + i).hide();
-                console.log("#" + i);
-
             }
         }
-
-
     },
-
     gameOver: function() {
         if ((trivia.questions.length - 1) === trivia.questionIndex) {
             console.log("end of game");
@@ -202,14 +238,8 @@ var trivia = {
         } else {
             return false;
         }
-
-
     }
-
-
 };
-
-
 
 // Start Game Stuff
 
@@ -228,36 +258,27 @@ $(document).ready(function() {
     });
 
     $(".answer").on("click", function() {
-        console.log(" game started " + trivia.gameStarted);
-
         if (trivia.gameStarted && !trivia.gamePaused) {
             trivia.stop() // stop timer
             trivia.gamePaused = true; // set to true to stop click functions on answer divs
             trivia.showCorrect();
-
             //this.id returns the 'id' of the clicked element
             //we use this to compare to the answer in the trivia obj
-
             // check answer to see if it correct
-
             if (trivia.checkAnswer(parseInt(this.id))) {
-
-                console.log("correct");
                 trivia.questionsCorrect++;
                 $("#notification").html("<h2>Correct, the answer is</h2>").show();
 
             } else {
-                console.log("wrong");
                 trivia.questionsIncorrect++;
             }
             if (!trivia.gameOver()) {
                 trivia.questionIndex++;
                 setTimeout(function() {
                     trivia.nextQuestion();
-                }, 5000);
+                }, 3000);
             }
         }
     });
 
 });
-
