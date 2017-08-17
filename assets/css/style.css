@@ -1,0 +1,64 @@
+/*#answers{
+	background-color: pink;
+}
+
+
+
+.0,.1,.2,.3{
+	background-color: pink;*/
+
+
+/*#\31 "0",#\31 1,#\31 2,#\31 3{
+	background-color: pink!important;
+}*/
+
+body{
+	background-image: url(../images/sopranoes.jpg);
+	background-repeat: no-repeat;
+	height: 100%;
+	background-color: black;
+}
+
+[id="0"],[id="1"],[id="2"],[id="3"] {color: red!important;}
+
+
+/*#answers{
+	background-color: grey;
+}*/
+
+.jumbotron {
+    /*height: calc(100% + 113px);*/
+    min-height: 620px;
+
+    opacity: .75;
+    /*overflow: auto;*/
+}
+
+.header{
+	height: 100px;
+}
+#question{
+	height: 50px;
+	text-align: center;
+}
+#answers,
+#correct-answer,
+#notification{
+	height: 100px;
+	text-align: center;
+}
+#countdown{
+	height: 50px;
+	text-align: center;
+}
+#start{
+	height: 50px;
+}
+#start-game,
+#restart-game{
+	width: 200px;
+}
+
+.winner{
+	background-color: green;
+}
